@@ -1,0 +1,114 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    font-size: 2.0vh;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+body{
+    background-color: lightgray;
+    position: relative;
+    height: 120vh;
+    
+}
+
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+#botaoMenu{
+    position: fixed;
+    top: 1vh;
+    right: 2vh;
+    display: flex;
+    padding: 1.5vh 1.5vh;
+    border: none;
+    background: white;
+    border-color: white;
+    border-radius: 100%;
+    cursor: pointer;
+    box-shadow: 0 0 1vh 0 rgba(0, 0, 0, 0.425);
+    z-index: 10000;
+}
+
+.menu{
+    position: fixed;
+    display: block;
+    width: 0%;
+    top: 0vh;
+    right: 0vh;
+    background-color: rgba(0, 0, 0, 0.432);
+    height: 100vh;
+    transition: 0.6s;
+    z-index: 1000;
+    visibility: hidden;
+    overflow-x: hidden;
+}
+
+.menu .links{
+    position: relative;
+    top: 2vh;
+    color: white;
+    visibility: hidden;
+    transition: 2s;
+    z-index: 1000000;
+}
+
+#desenhoBotao{
+    border-top: 2px solid black;
+    width: 2.5vh;
+}
+
+#desenhoBotao::after,
+#desenhoBotao::before {
+  content: '';
+  display: block;
+  width: 2.5vh;
+  height: 2px;
+  background: black;
+  margin-top: 5px;
+  transition: 0.4s;
+  position: relative;
+}
+
+#navBar.navAtiva .menu{
+    visibility: visible;
+    overflow-x: auto;
+    width: 25%;
+}
+
+#navBar.navAtiva .menu .links{
+    color: white;
+    visibility: visible;
+
+    }
+
+#navBar.navAtiva #botaoMenu #desenhoBotao{
+    border-top-color: transparent;
+}
+
+#navBar.navAtiva #botaoMenu #desenhoBotao::before{
+    transform: rotate(135deg);
+}
+
+#navBar.navAtiva #botaoMenu #desenhoBotao::after{
+    transform: rotate(-135deg);
+    top: -6px;
+}
+
+.fade{
+    animation-name: fade;
+    animation-duration: 5s;
+    }
+    
+@keyframes fade{
+       0% {opacity: 0;}
+       15% {opacity: 0;}
+       80%{opacity: 1;}
+       100%{opacity: 1;}
+       
+}
